@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Todo List</h3>
+    <script>
+        var todo =[];
+        function add_item(new_item){
+            todo.push(new_item);
+        }
+        function show(){
+            var string = "TODO List\n\n";
+            for(var i =0; i<todo.length; i=i+1){
+                string += i+1 + "." + todo[i] + "\n";
+            }
+            console.log(string);
+        }
+        function mark_item(index){
+            for (var i =0; i<todo.length; i++){
+                if (index===i){
+                todo[i] = todo[i] + " _/";
+                }
+            }
+        }
+        function edit_item(i,edit){
+            todo[i] = edit;
+        }
+        function del_item(items){
+            var deleted = todo.splice(items, 1)[0];
+            console.log("The item deleted from array is :", deleted);
+            console.log("The array after the modification",todo);
+        }
+        add_item("Bat");
+        add_item("Bowl");
+        add_item("Wicket");
+        add_item("Helmet");
+        show();
+        del_item(2);
+        show();
+        mark_item(0);
+        mark_item(1);
+        show();
+        edit_item(2,"kit");
+
+        show();
+    </script>
+</body>
+</html>
